@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Zoe ❤️</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+        color: #fff;
+        text-align: center;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: normal;
+        opacity: 0.85;
+    }
+
+    button {
+        margin-top: 30px;
+        padding: 15px 40px;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 30px;
+        background: #e63946;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff4d5a;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 15px;
+        filter: grayscale(20%);
+        transition: 0.3s;
+    }
+
+    .gallery img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.03);
+    }
+
+    .card {
+        background: rgba(255,255,255,0.05);
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 40px;
+    }
+
+    footer {
+        opacity: 0.6;
+        font-size: 0.9em;
+        margin-top: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<section>
+    <h1>Zoe</h1>
+    <h2>Lo nuestro no es casualidad. Es intensidad.</h2>
+    <button onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">
+        Entrar ❤️
+    </button>
+</section>
+
+<section id="contenido">
+
+    <div class="gallery">
+        <img src="foto1.jpg" alt="Nosotros">
+        <img src="foto2.jpg" alt="Nosotros">
+        <img src="foto3.jpg" alt="Nosotros">
+    </div>
+
+    <div class="card">
+        <p>
+            Bueno amor,<br><br>
+            como sabés, no soy muy bueno para hacer cosas a mano, pero la tecnología se me da bastante bien.
+            Por eso elegí hacerte esta página: algo personalizado, pensado solo para vos y para esta fecha tan especial.
+            <br><br>
+            Gracias por todo. Por lo que sos, por lo que significás en mi vida, por seguir eligiéndome todos los días
+            y por bancarme incluso con mis errores y defectos, esos que ya te mostré a lo largo de este tiempo.
+            <br><br>
+            Lo nuestro es intensidad, y no lo cambiaría por nada.
+            <br><br>
+            Te amo. Gracias por ser vos.
+            <br><br>
+            <strong>ATTE: tu novio ♥</strong>
+        </p>
+    </div>
+
+    <footer>
+        Hecho con amor, solo para vos.
+    </footer>
+
+</section>
+
+<audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
