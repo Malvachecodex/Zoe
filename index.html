@@ -1,139 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Zoe ❤️</title>
+  <meta charset="UTF-8">
+  <title>Zoe ❤️</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-            color: #ffffff;
-            text-align: center;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+      text-align: center;
+    }
 
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+    /* INTRO */
+    #intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 2s ease;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
+    #intro h1 {
+      font-size: 3.2em;
+      margin-bottom: 10px;
+    }
 
-        h2 {
-            font-weight: normal;
-            opacity: 0.85;
-        }
+    #intro p {
+      font-size: 1.2em;
+      opacity: 0.8;
+    }
 
-        button {
-            margin-top: 30px;
-            padding: 15px 40px;
-            font-size: 1.1em;
-            border: none;
-            border-radius: 30px;
-            background: #e63946;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    #intro button {
+      margin-top: 35px;
+      padding: 15px 45px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        button:hover {
-            background: #ff4d5a;
-        }
+    #intro button:hover {
+      background: #ff4d6d;
+      transform: scale(1.05);
+    }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
+    /* CONTENT */
+    #content {
+      display: none;
+      padding: 80px 20px;
+    }
 
-        .gallery img {
-            width: 100%;
-            border-radius: 15px;
-            filter: grayscale(20%);
-            transition: 0.3s;
-        }
+    /* FALLING TEXT */
+    .line {
+      opacity: 0;
+      transform: translateY(-60px);
+      animation: fall 1.2s ease forwards;
+    }
 
-        .gallery img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
+    .line:nth-child(1) { animation-delay: 0.5s; }
+    .line:nth-child(2) { animation-delay: 1.5s; }
+    .line:nth-child(3) { animation-delay: 2.5s; }
+    .line:nth-child(4) { animation-delay: 3.5s; }
+    .line:nth-child(5) { animation-delay: 4.5s; }
 
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            margin-top: 40px;
-        }
+    @keyframes fall {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        footer {
-            opacity: 0.6;
-            font-size: 0.9em;
-            margin-top: 40px;
-        }
-    </style>
+    .message {
+      max-width: 800px;
+      margin: 0 auto 80px;
+      font-size: 1.3em;
+      line-height: 1.9;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      transition: transform 0.6s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.06);
+    }
+
+    footer {
+      margin-top: 90px;
+      opacity: 0.6;
+      font-size: 0.9em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
 
-<section>
-    <h1>Zoe</h1>
-    <h2>What we have is not coincidence. It is intensity.</h2>
+  <!-- INTRO -->
+  <div id="intro">
+    <h1>For Zoe ❤️</h1>
+    <p>Intensity, love, and everything we are.</p>
+    <button onclick="enterSite()">Enter</button>
+  </div>
 
-    <button onclick="document.getElementById('content').scrollIntoView({behavior:'smooth'})">
-        Enter ❤️
-    </button>
-</section>
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
-<section id="content">
+  <!-- CONTENT -->
+  <div id="content">
+
+    <div class="message">
+      <p class="line">
+        I’m not very good at making things by hand,
+      </p>
+      <p class="line">
+        but technology is where I feel most comfortable.
+      </p>
+      <p class="line">
+        That’s why I wanted to create something special for you,
+      </p>
+      <p class="line">
+        something that represents how intense and real what we have is.
+      </p>
+      <p class="line">
+        Thank you for choosing me every day. I love you.
+      </p>
+
+      <p class="line" style="margin-top:40px;">
+        — Your boyfriend ❤️
+      </p>
+    </div>
 
     <div class="gallery">
       <img src="foto1.jpg">
-  <img src="foto2.jpg">
-  <img src="foto3.jpg">
-  <img src="foto4.jpg">
-  <img src="foto5.jpg">
-  <img src="foto6.jpg">
-    </div>
-
-    <div class="card">
-        <p>
-            Well, my love,<br><br>
-
-            as you know, I’m not very good at making things by hand,
-            but technology is something I’m good at.<br><br>
-
-            That’s why I chose to make this page for you —
-            something personal, made just for you and for this special day.<br><br>
-
-            Thank you for everything.
-            For who you are, for what you mean to me,
-            for choosing me every day,
-            and for staying by my side even with all my flaws and mistakes,
-            the ones I’ve shown you over time.<br><br>
-
-            What we have is intensity, and I wouldn’t change it for anything.<br><br>
-
-            I love you. Thank you for being you.<br><br>
-
-            <strong>With love, your boyfriend ♥</strong>
-        </p>
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+      <img src="foto4.jpg">
+      <img src="foto5.jpg">
+      <img src="foto6.jpg">
     </div>
 
     <footer>
-        Made with love, just for you.
+      Happy Valentine’s Day 💘
     </footer>
 
-</section>
+  </div>
 
-<audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+  <!-- SCRIPT -->
+  <script>
+    function enterSite() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      const music = document.getElementById("music");
+      music.volume = 0.4;
+      music.play();
+    }
+  </script>
 
 </body>
 </html>
