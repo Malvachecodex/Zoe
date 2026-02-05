@@ -1,186 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Zoe ❤️</title>
+<meta charset="UTF-8">
+<title>Zoe ❤️</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
-      color: #fff;
-      overflow-x: hidden;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    /* INTRO */
-    #intro {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 2s ease;
-    }
+/* INTRO */
+#intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    #intro h1 {
-      font-size: 3.2em;
-      margin-bottom: 10px;
-    }
+#intro h1 {
+  font-size: 3.2em;
+}
 
-    #intro p {
-      font-size: 1.2em;
-      opacity: 0.8;
-    }
+#intro p {
+  opacity: 0.8;
+  font-size: 1.2em;
+}
 
-    #intro button {
-      margin-top: 35px;
-      padding: 15px 45px;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 30px;
-      background: #e63946;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+#intro button {
+  margin-top: 30px;
+  padding: 15px 45px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 30px;
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    #intro button:hover {
-      background: #ff4d6d;
-      transform: scale(1.05);
-    }
+#intro button:hover {
+  background: #ff4d6d;
+  transform: scale(1.05);
+}
 
-    /* CONTENT */
-    #content {
-      display: none;
-      padding: 80px 20px;
-    }
+/* CONTENT */
+#content {
+  display: none;
+  padding: 80px 20px;
+}
 
-    /* FALLING TEXT */
-    .line {
-      opacity: 0;
-      transform: translateY(-60px);
-      animation: fall 1.2s ease forwards;
-    }
+/* PHRASES */
+#phrases {
+  font-size: 1.5em;
+  margin-bottom: 80px;
+  min-height: 60px;
+}
 
-    .line:nth-child(1) { animation-delay: 0.5s; }
-    .line:nth-child(2) { animation-delay: 1.5s; }
-    .line:nth-child(3) { animation-delay: 2.5s; }
-    .line:nth-child(4) { animation-delay: 3.5s; }
-    .line:nth-child(5) { animation-delay: 4.5s; }
+/* FALLING TEXT */
+.line {
+  opacity: 0;
+  transform: translateY(-60px);
+  animation: fall 1.2s ease forwards;
+}
 
-    @keyframes fall {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.line:nth-child(1){animation-delay:.5s}
+.line:nth-child(2){animation-delay:1.5s}
+.line:nth-child(3){animation-delay:2.5s}
+.line:nth-child(4){animation-delay:3.5s}
+.line:nth-child(5){animation-delay:4.5s}
 
-    .message {
-      max-width: 800px;
-      margin: 0 auto 80px;
-      font-size: 1.3em;
-      line-height: 1.9;
-    }
+@keyframes fall {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    /* GALLERY */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+/* MESSAGE */
+.message {
+  max-width: 800px;
+  margin: 0 auto 100px;
+  font-size: 1.3em;
+  line-height: 1.9;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-      transition: transform 0.6s ease;
-    }
+/* TIMELINE */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto 100px;
+  text-align: left;
+}
 
-    .gallery img:hover {
-      transform: scale(1.06);
-    }
+.timeline div {
+  margin-bottom: 25px;
+  border-left: 3px solid #e63946;
+  padding-left: 20px;
+}
 
-    footer {
-      margin-top: 90px;
-      opacity: 0.6;
-      font-size: 0.9em;
-    }
+/* LETTER */
+#letterBtn {
+  padding: 12px 35px;
+  border-radius: 25px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+#letter {
+  display: none;
+  max-width: 700px;
+  margin: 40px auto;
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* SECRET MESSAGE */
+.secretLine {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 1.2s ease forwards;
+}
+
+.secretLine:nth-child(1){animation-delay:.5s}
+.secretLine:nth-child(2){animation-delay:1.5s}
+.secretLine:nth-child(3){animation-delay:2.5s}
+.secretLine:nth-child(4){animation-delay:3.5s}
+.secretLine:nth-child(5){animation-delay:4.5s}
+.secretLine:nth-child(6){animation-delay:5.5s}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* POLAROIDS */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 80px;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 25px;
+  width: 220px;
+  transform: rotate(var(--r));
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+.polaroid img {
+  width: 100%;
+}
+
+.polaroid span {
+  color: #111;
+  font-size: 0.9em;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 100px;
+  opacity: 0.6;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- INTRO -->
-  <div id="intro">
-    <h1>For Zoe ❤️</h1>
-    <p>Intensity, love, and everything we are.</p>
-    <button onclick="enterSite()">Enter</button>
+<!-- INTRO -->
+<div id="intro">
+  <h1>For Zoe ❤️</h1>
+  <p>Intensity, love, and everything we are.</p>
+  <button onclick="enterSite()">Enter</button>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CONTENT -->
+<div id="content">
+
+  <!-- PHRASES -->
+  <div id="phrases"></div>
+
+  <!-- FALLING MESSAGE -->
+  <div class="message">
+    <p class="line">I’m not very good at making things by hand,</p>
+    <p class="line">but technology is where I feel most comfortable.</p>
+    <p class="line">So I wanted to create something special for you,</p>
+    <p class="line">something that reflects how intense what we have is.</p>
+    <p class="line">Thank you for choosing me every day.</p>
   </div>
 
-  <!-- MUSIC -->
-  <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- CONTENT -->
-  <div id="content">
-
-    <div class="message">
-      <p class="line">
-        I’m not very good at making things by hand,
-      </p>
-      <p class="line">
-        but technology is where I feel most comfortable.
-      </p>
-      <p class="line">
-        That’s why I wanted to create something special for you,
-      </p>
-      <p class="line">
-        something that represents how intense and real what we have is.
-      </p>
-      <p class="line">
-        Thank you for choosing me every day. I love you.
-      </p>
-
-      <p class="line" style="margin-top:40px;">
-        — Your boyfriend ❤️
-      </p>
-    </div>
-
-    <div class="gallery">
-      <img src="foto1.jpg">
-      <img src="foto2.jpg">
-      <img src="foto3.jpg">
-      <img src="foto4.jpg">
-      <img src="foto5.jpg">
-      <img src="foto6.jpg">
-    </div>
-
-    <footer>
-      Happy Valentine’s Day 💘
-    </footer>
-
+  <!-- TIMELINE -->
+  <div class="timeline">
+    <div><strong>The day we met</strong><br>Nothing felt casual ever again.</div>
+    <div><strong>Our first moments</strong><br>Everything started making sense.</div>
+    <div><strong>Today</strong><br>Still choosing you. Every day.</div>
   </div>
 
-  <!-- SCRIPT -->
-  <script>
-    function enterSite() {
-      document.getElementById("intro").style.display = "none";
-      document.getElementById("content").style.display = "block";
-      const music = document.getElementById("music");
-      music.volume = 0.4;
-      music.play();
-    }
-  </script>
+  <!-- LETTER -->
+  <button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
+  <div id="letter">
+    <p>
+      I’m not perfect, but loving you feels natural.<br>
+      Thank you for your patience, your intensity,<br>
+      and for staying even when things aren’t easy.
+    </p>
+    <p>I choose you. Always.</p>
+    <p>— Your boyfriend ❤️</p>
+  </div>
+
+  <!-- SECRET MESSAGE -->
+  <div style="margin-top:100px;">
+    <h2>Something just for you ❤️</h2>
+    <p>Write the word that defines us.</p>
+
+    <input id="secretInput" type="text" placeholder="Enter the word"
+      style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
+
+    <br><br>
+
+    <button onclick="checkSecret()"
+      style="padding:12px 35px; border-radius:25px; border:none;
+      background:#e63946; color:white; cursor:pointer;">
+      Unlock
+    </button>
+
+    <div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin-left:auto; margin-right:auto;">
+      <p class="secretLine">Today we have to love each other from a distance,</p>
+      <p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
+      <p class="secretLine">I wish I could be by your side, but when you see this page,</p>
+      <p class="secretLine">I hope you feel me close to you.</p>
+      <p class="secretLine">I would love to see your reaction in person,</p>
+      <p class="secretLine">but I know our reunion will be even better.</p>
+      <p class="secretLine">Have a beautiful Valentine’s Day, remembering us and how deeply I love you.</p>
+    </div>
+  </div>
+
+  <!-- POLAROIDS -->
+  <div class="gallery">
+    <div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
+    <div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
+    <div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
+    <div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
+    <div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
+    <div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
+  </div>
+
+  <footer>
+    Happy Valentine’s Day 💘
+  </footer>
+
+</div>
+
+<script>
+const phrases = [
+  "You are my favorite place.",
+  "With you, everything feels real.",
+  "Intensity is loving without fear.",
+  "I choose you, every day."
+];
+
+let i = 0;
+setInterval(() => {
+  document.getElementById("phrases").textContent = phrases[i];
+  i = (i + 1) % phrases.length;
+}, 3500);
+
+function enterSite() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("content").style.display = "block";
+  const music = document.getElementById("music");
+  music.volume = 0.4;
+  music.play();
+}
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+
+function checkSecret() {
+  const input = document.getElementById("secretInput").value.trim().toUpperCase();
+  if (input === "INTENSITY") {
+    document.getElementById("secretMessage").style.display = "block";
+  } else {
+    alert("That’s not the word ❤️");
+  }
+}
+</script>
 
 </body>
 </html>
