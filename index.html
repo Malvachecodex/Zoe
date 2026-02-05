@@ -8,11 +8,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #000;
+  background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
   color: white;
   text-align: center;
 }
 
+/* Pantalla entrada */
 #pantallaEntrada {
   height: 100vh;
   display: flex;
@@ -20,6 +21,7 @@ body {
   justify-content: center;
 }
 
+/* Botones */
 button {
   padding: 15px 40px;
   border-radius: 30px;
@@ -30,6 +32,7 @@ button {
   cursor: pointer;
 }
 
+/* Contenido oculto */
 #contenido {
   display: none;
   padding: 40px 20px;
@@ -47,58 +50,71 @@ button {
 
 /* Fotos */
 .fotos img {
-  width: 240px;
+  width: 250px;
   border-radius: 20px;
   margin: 15px;
 }
 
-/* CARTA INTERACTIVA */
+/* Carta */
 .carta {
   max-width: 700px;
   margin: 80px auto;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   padding: 30px;
   border-radius: 20px;
-  cursor: pointer;
 }
 
-.carta p {
-  display: none;
-  margin-top: 20px;
-}
-
-/* LÍNEA DE TIEMPO */
+/* Línea de tiempo */
 .lineaTiempo {
   max-width: 700px;
-  margin: 100px auto;
+  margin: 80px auto;
   text-align: left;
 }
 
 .evento {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   opacity: 0;
   transform: translateY(40px);
   animation: aparecer 1s ease forwards;
 }
 
 .evento:nth-child(1){animation-delay:.5s}
-.evento:nth-child(2){animation-delay:1.5s}
-.evento:nth-child(3){animation-delay:2.5s}
-.evento:nth-child(4){animation-delay:3.5s}
-
-.evento h3 {
-  color: #ffb703;
-  animation: brillo 1s ease;
-}
+.evento:nth-child(2){animation-delay:1.2s}
+.evento:nth-child(3){animation-delay:1.9s}
+.evento:nth-child(4){animation-delay:2.6s}
 
 @keyframes aparecer {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Títulos resaltados con brillo */
+.evento h3 {
+  color: #ffb703;
+  animation: brillo 1s ease;
+}
+
 @keyframes brillo {
   0% { text-shadow: 0 0 0px #ffb703; }
-  50% { text-shadow: 0 0 15px #ffd166; }
+  50% { text-shadow: 0 0 15px #ffb703; }
   100% { text-shadow: 0 0 0px #ffb703; }
+}
+
+/* Mensaje secreto */
+.lineaSecreta {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: revelar 1.2s ease forwards;
+}
+
+.lineaSecreta:nth-child(1){animation-delay:.5s}
+.lineaSecreta:nth-child(2){animation-delay:1.5s}
+.lineaSecreta:nth-child(3){animation-delay:2.5s}
+.lineaSecreta:nth-child(4){animation-delay:3.5s}
+.lineaSecreta:nth-child(5){animation-delay:4.5s}
+.lineaSecreta:nth-child(6){animation-delay:5.5s}
+
+@keyframes revelar {
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
@@ -111,7 +127,7 @@ button {
 </div>
 
 <audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div id="contenido">
@@ -128,9 +144,9 @@ button {
 </div>
 
 <!-- CARTA -->
-<div class="carta" onclick="mostrarCarta()">
+<div class="carta">
   <h2>Read something for you ❤️</h2>
-  <p id="textoCarta">
+  <p>
     Thank you for choosing me to be your companion every day, for letting me enjoy every moment with you and for letting me be someone very special in your life. That is why, and because of such an important date, I decided to do what I did for you today, a memory of the past of the beautiful moments we have lived together up to this day (I know some are missing, but I don’t have a photo of every beautiful moment I spend with you since they happen every day). THANK YOU AND I LOVE YOU.
   </p>
 </div>
@@ -139,25 +155,47 @@ button {
 <div class="lineaTiempo">
 
   <div class="evento">
-    <h3>Since we started arguing</h3>
+    <h3>Since we started “arguing”</h3>
     <p>I felt that this “argument” was just an excuse to hide our feelings.</p>
   </div>
 
   <div class="evento">
     <h3>When I didn’t see you</h3>
-    <p>I felt that need to see you, without knowing why, and I looked for an excuse to talk to you.</p>
+    <p>I felt that need to see you, without knowing why, and to look for an excuse to talk to you.</p>
   </div>
 
   <div class="evento">
-    <h3>How could I not remember our first date and how nervous I was (so nervous that I couldn’t even open the door)</h3>
-    <p>I was so nervous, but at the same time anxious and happy to be able to make what I wanted come true, to spend some time with you outside of school.</p>
+    <h3>How could I forget our first date and how nervous I was</h3>
+    <p>I was so nervous, but at the same time excited and happy to finally be able to spend some time with you outside of school.</p>
   </div>
 
   <div class="evento">
     <h3>These things and many more make me</h3>
-    <p>Keep choosing you every day and see you as my light on the path, my partner in the adventure, and my unconditional love.</p>
+    <p>Choose you every single day, see you as my light on the road, my partner in the adventure and my unconditional love.</p>
   </div>
 
+</div>
+
+<!-- MENSAJE SECRETO -->
+<div style="margin-top:100px;">
+  <h2>Something just for you ❤️</h2>
+  <p>Write the word that defines us.</p>
+
+  <input id="entradaSecreta" type="text" placeholder="Write the word"
+    style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
+
+  <br><br>
+
+  <button onclick="verificarSecreto()">Unlock</button>
+
+  <div id="mensajeSecreto" style="display:none; margin-top:40px;">
+    <p class="lineaSecreta">Today we have to love each other from a distance,</p>
+    <p class="lineaSecreta">but I couldn’t let this important day pass without doing something for us.</p>
+    <p class="lineaSecreta">I wish I could be by your side, but when you see this page,</p>
+    <p class="lineaSecreta">I hope you feel me close to you.</p>
+    <p class="lineaSecreta">I would love to see your reaction in person,</p>
+    <p class="lineaSecreta">but I know our reunion will be even better.</p>
+  </div>
 </div>
 
 </div>
@@ -169,9 +207,13 @@ function entrar() {
   document.getElementById("musica").play();
 }
 
-function mostrarCarta() {
-  const texto = document.getElementById("textoCarta");
-  texto.style.display = texto.style.display === "block" ? "none" : "block";
+function verificarSecreto() {
+  const input = document.getElementById("entradaSecreta").value.trim().toUpperCase();
+  if (input === "INTENSITY") {
+    document.getElementById("mensajeSecreto").style.display = "block";
+  } else {
+    alert("That’s not the word ❤️");
+  }
 }
 </script>
 
