@@ -179,25 +179,20 @@ footer {
 
 <body>
 
-<!-- INTRO -->
 <div id="intro">
   <h1>For Zoe ❤️</h1>
   <p>Intensity, love, and everything we are.</p>
   <button onclick="enterSite()">Enter</button>
 </div>
 
-<!-- MUSIC -->
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CONTENT -->
 <div id="content">
 
-  <!-- PHRASES -->
   <div id="phrases"></div>
 
-  <!-- FALLING MESSAGE -->
   <div class="message">
     <p class="line">I’m not very good at making things by hand,</p>
     <p class="line">but technology is where I feel most comfortable.</p>
@@ -206,14 +201,29 @@ footer {
     <p class="line">Thank you for choosing me every day.</p>
   </div>
 
-  <!-- TIMELINE -->
+  <!-- TIMELINE MODIFICADA -->
   <div class="timeline">
-    <div><strong>The day we met</strong><br>Nothing felt casual ever again.</div>
-    <div><strong>Our first moments</strong><br>Everything started making sense.</div>
-    <div><strong>Today</strong><br>Still choosing you. Every day.</div>
+    <div>
+      <strong>Since the moment we started arguing</strong><br>
+      I felt that that “argument” was just an excuse to hide our feelings.
+    </div>
+
+    <div>
+      <strong>When I couldn’t see you</strong><br>
+      I felt that need to see you, without knowing why, and to look for an excuse to talk to you.
+    </div>
+
+    <div>
+      <strong>How could I forget our first date and how nervous I was</strong><br>
+      I was so nervous that I couldn’t even open the door, but at the same time anxious and happy to be doing what I wanted: spending some time with you outside of school.
+    </div>
+
+    <div>
+      <strong>These things, and so many more, are what make me</strong><br>
+      keep choosing you every single day, making you my light on the path, my partner in the adventure, and my unconditional love.
+    </div>
   </div>
 
-  <!-- LETTER -->
   <button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
   <div id="letter">
     <p>
@@ -230,48 +240,8 @@ footer {
       we share, because they happen every day).
     </p>
 
-    <p>
-      Thank you, and I love you.
-    </p>
-
+    <p>Thank you, and I love you.</p>
     <p>— Your boyfriend ❤️</p>
-  </div>
-
-  <!-- SECRET MESSAGE -->
-  <div style="margin-top:100px;">
-    <h2>Something just for you ❤️</h2>
-    <p>Write the word that defines us.</p>
-
-    <input id="secretInput" type="text" placeholder="Enter the word"
-      style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
-
-    <br><br>
-
-    <button onclick="checkSecret()"
-      style="padding:12px 35px; border-radius:25px; border:none;
-      background:#e63946; color:white; cursor:pointer;">
-      Unlock
-    </button>
-
-    <div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin-left:auto; margin-right:auto;">
-      <p class="secretLine">Today we have to love each other from a distance,</p>
-      <p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
-      <p class="secretLine">I wish I could be by your side, but when you see this page,</p>
-      <p class="secretLine">I hope you feel me close to you.</p>
-      <p class="secretLine">I would love to see your reaction in person,</p>
-      <p class="secretLine">but I know our reunion will be even better.</p>
-      <p class="secretLine">Have a beautiful Valentine’s Day, remembering us and how deeply I love you.</p>
-    </div>
-  </div>
-
-  <!-- POLAROIDS -->
-  <div class="gallery">
-    <div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
-    <div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
-    <div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
-    <div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
-    <div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
-    <div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
   </div>
 
   <footer>
@@ -304,15 +274,6 @@ function enterSite() {
 
 function openLetter() {
   document.getElementById("letter").style.display = "block";
-}
-
-function checkSecret() {
-  const input = document.getElementById("secretInput").value.trim().toUpperCase();
-  if (input === "INTENSITY") {
-    document.getElementById("secretMessage").style.display = "block";
-  } else {
-    alert("That’s not the word ❤️");
-  }
 }
 </script>
 
