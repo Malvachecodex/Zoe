@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Zoe ❤️</title>
@@ -7,14 +7,13 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
   color: white;
   text-align: center;
 }
 
-/* ENTRADA */
-#pantallaEntrada {
+#enterScreen {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,51 +30,45 @@ button {
   cursor: pointer;
 }
 
-/* CONTENIDO */
-#contenido {
+#content {
   display: none;
   padding: 40px 20px;
 }
 
-/* ANIMACIÓN TEXTO */
-.caer {
-  animation: caer 1.5s ease forwards;
+/* Falling text */
+.fall {
+  animation: fall 1.5s ease forwards;
 }
 
-@keyframes caer {
+@keyframes fall {
   from { opacity: 0; transform: translateY(-60px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* FOTOS POLAROID */
-.fotos {
-  margin-top: 40px;
+/* Photos */
+.photos img {
+  width: 250px;
+  border-radius: 20px;
+  margin: 15px;
 }
 
-.fotos img {
-  width: 240px;
-  background: white;
-  padding: 10px 10px 30px 10px;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  transition: transform 0.3s;
+/* Timeline */
+.timeline {
+  max-width: 700px;
+  margin: 80px auto;
+  text-align: left;
 }
 
-.fotos img:nth-child(odd) {
-  transform: rotate(-3deg);
+.event {
+  margin-bottom: 40px;
 }
 
-.fotos img:nth-child(even) {
-  transform: rotate(3deg);
+.event h3 {
+  color: #ffb703;
 }
 
-.fotos img:hover {
-  transform: scale(1.05);
-}
-
-/* CARTA */
-.carta {
+/* Letter */
+.letter {
   max-width: 700px;
   margin: 80px auto;
   background: rgba(255,255,255,0.1);
@@ -83,44 +76,21 @@ button {
   border-radius: 20px;
 }
 
-/* LÍNEA DE TIEMPO (MISMO ESTILO ORIGINAL) */
-.lineaTiempo {
-  max-width: 700px;
-  margin: 80px auto;
-  text-align: left;
-}
-
-.evento {
-  margin-bottom: 40px;
+/* Secret message */
+.secretLine {
   opacity: 0;
   transform: translateY(40px);
-  animation: aparecer 1s ease forwards;
+  animation: reveal 1.2s ease forwards;
 }
 
-.evento:nth-child(1){animation-delay:.3s}
-.evento:nth-child(2){animation-delay:.9s}
-.evento:nth-child(3){animation-delay:1.5s}
-.evento:nth-child(4){animation-delay:2.1s}
+.secretLine:nth-child(1){animation-delay:.5s}
+.secretLine:nth-child(2){animation-delay:1.5s}
+.secretLine:nth-child(3){animation-delay:2.5s}
+.secretLine:nth-child(4){animation-delay:3.5s}
+.secretLine:nth-child(5){animation-delay:4.5s}
+.secretLine:nth-child(6){animation-delay:5.5s}
 
-@keyframes aparecer {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* MENSAJE SECRETO */
-.lineaSecreta {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: revelar 1.2s ease forwards;
-}
-
-.lineaSecreta:nth-child(1){animation-delay:.5s}
-.lineaSecreta:nth-child(2){animation-delay:1.5s}
-.lineaSecreta:nth-child(3){animation-delay:2.5s}
-.lineaSecreta:nth-child(4){animation-delay:3.5s}
-.lineaSecreta:nth-child(5){animation-delay:4.5s}
-.lineaSecreta:nth-child(6){animation-delay:5.5s}
-
-@keyframes revelar {
+@keyframes reveal {
   to { opacity: 1; transform: translateY(0); }
 }
 </style>
@@ -128,94 +98,94 @@ button {
 
 <body>
 
-<div id="pantallaEntrada">
-  <h1 class="caer">For Zoe ❤️</h1>
-  <button onclick="entrar()">Enter</button>
+<div id="enterScreen">
+  <h1 class="fall">For Zoe ❤️</h1>
+  <button onclick="enter()">Enter</button>
 </div>
 
-<audio id="musica" loop>
-  <source src="music.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<div id="contenido">
+<div id="content">
 
-<h1 class="caer">Happy Valentine’s Day ❤️</h1>
+<h1 class="fall">Happy Valentine’s Day ❤️</h1>
 
-<div class="fotos">
-  <img src="foto1.jpg">
-  <img src="foto2.jpg">
-  <img src="foto3.jpg">
-  <img src="foto4.jpg">
-  <img src="foto5.jpg">
-  <img src="foto6.jpg">
+<div class="photos">
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+  <img src="photo4.jpg">
+  <img src="photo5.jpg">
+  <img src="photo6.jpg">
 </div>
 
-<!-- CARTA -->
-<div class="carta">
+<!-- LETTER -->
+<div class="letter">
   <h2>Read something for you ❤️</h2>
   <p>
     Thank you for choosing me to be your companion every day, for letting me enjoy every moment with you and for letting me be someone very special in your life. That is why, and because of such an important date, I decided to do what I did for you today, a memory of the past of the beautiful moments we have lived together up to this day (I know some are missing, but I don’t have a photo of every beautiful moment I spend with you since they happen every day). THANK YOU AND I LOVE YOU.
   </p>
 </div>
 
-<!-- LÍNEA DE TIEMPO -->
-<div class="lineaTiempo">
-  <div class="evento">
-    <h3>Since we started arguing</h3>
-    <p>I felt that this “argument” was just an excuse to hide our feelings.</p>
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="event">
+    <h3>desde que empezamos a pelear</h3>
+    <p>senti que esa "pelea" era una excusa a esconder nuestros sentimientos</p>
   </div>
 
-  <div class="evento">
-    <h3>When I couldn’t see you</h3>
-    <p>I felt that need to see you, without knowing why, and to look for an excuse to talk to you.</p>
+  <div class="event">
+    <h3>Cuando no te veía</h3>
+    <p>sentia esa necesidad de verte y no saber el por qué y buscar una excusa para hablarte</p>
   </div>
 
-  <div class="evento">
-    <h3>How could I forget our first date</h3>
-    <p>I was so nervous, but also excited and happy to finally spend some time with you outside school.</p>
+  <div class="event">
+    <h3>Como no recordar la primera cita nuestra y lo nervioso que estaba yo ( tan nervioso que no podia ni abrir la puerta)</h3>
+    <p>estaba tan nervioso pero a la vez ansioso y feliz de poder estar cumpliendo lo que queria, estar un rato con vos fuera de la escuela</p>
   </div>
 
-  <div class="evento">
-    <h3>All these things and many more make me</h3>
-    <p>Choose you every single day, my light on the road, my partner in the adventure and my unconditional love.</p>
+  <div class="event">
+    <h3>Éstas cosas y muchas mas, hacen que</h3>
+    <p>Te siga eligiendo todos los dias y seas mi luz en el camino, mi compañera en la aventura y mi amor incondicional</p>
   </div>
 </div>
 
-<!-- MENSAJE SECRETO -->
+<!-- SECRET MESSAGE -->
 <div style="margin-top:100px;">
   <h2>Something just for you ❤️</h2>
   <p>Write the word that defines us.</p>
 
-  <input id="entradaSecreta" type="text" placeholder="Write the word"
+  <input id="secretInput" type="text" placeholder="Enter the word"
     style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
 
   <br><br>
 
-  <button onclick="verificarSecreto()">Unlock</button>
+  <button onclick="checkSecret()">Unlock</button>
 
-  <div id="mensajeSecreto" style="display:none; margin-top:40px;">
-    <p class="lineaSecreta">Today we have to love each other from a distance,</p>
-    <p class="lineaSecreta">but I couldn’t let this important day pass without doing something for us.</p>
-    <p class="lineaSecreta">I wish I could be by your side,</p>
-    <p class="lineaSecreta">and I hope you feel me close when you see this.</p>
-    <p class="lineaSecreta">I know our reunion will be even better.</p>
-    <p class="lineaSecreta">I love you.</p>
+  <div id="secretMessage" style="display:none; margin-top:40px;">
+    <p class="secretLine">Today we have to love each other from a distance,</p>
+    <p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
+    <p class="secretLine">I wish I could be by your side, but when you see this page,</p>
+    <p class="secretLine">I hope you feel me close to you.</p>
+    <p class="secretLine">I would love to see your reaction in person,</p>
+    <p class="secretLine">but I know our reunion will be even better.</p>
   </div>
 </div>
 
 </div>
 
 <script>
-function entrar() {
-  document.getElementById("pantallaEntrada").style.display = "none";
-  document.getElementById("contenido").style.display = "block";
-  document.getElementById("musica").play();
+function enter() {
+  document.getElementById("enterScreen").style.display = "none";
+  document.getElementById("content").style.display = "block";
+  document.getElementById("music").play();
 }
 
-function verificarSecreto() {
-  const palabra = document.getElementById("entradaSecreta").value.trim().toUpperCase();
-  if (palabra === "INTENSITY") {
-    document.getElementById("mensajeSecreto").style.display = "block";
+function checkSecret() {
+  const input = document.getElementById("secretInput").value.trim().toUpperCase();
+  if (input === "INTENSITY") {
+    document.getElementById("secretMessage").style.display = "block";
   } else {
     alert("That’s not the word ❤️");
   }
