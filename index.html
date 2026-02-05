@@ -13,7 +13,7 @@ body {
   text-align: center;
 }
 
-/* Pantalla entrada */
+/* ENTRADA */
 #pantallaEntrada {
   height: 100vh;
   display: flex;
@@ -21,7 +21,6 @@ body {
   justify-content: center;
 }
 
-/* Botones */
 button {
   padding: 15px 40px;
   border-radius: 30px;
@@ -32,13 +31,13 @@ button {
   cursor: pointer;
 }
 
-/* Contenido oculto */
+/* CONTENIDO */
 #contenido {
   display: none;
   padding: 40px 20px;
 }
 
-/* Animación letras cayendo */
+/* ANIMACIÓN TEXTO */
 .caer {
   animation: caer 1.5s ease forwards;
 }
@@ -48,14 +47,34 @@ button {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Fotos */
-.fotos img {
-  width: 250px;
-  border-radius: 20px;
-  margin: 15px;
+/* FOTOS POLAROID */
+.fotos {
+  margin-top: 40px;
 }
 
-/* Carta */
+.fotos img {
+  width: 240px;
+  background: white;
+  padding: 10px 10px 30px 10px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.fotos img:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.fotos img:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.fotos img:hover {
+  transform: scale(1.05);
+}
+
+/* CARTA */
 .carta {
   max-width: 700px;
   margin: 80px auto;
@@ -64,7 +83,7 @@ button {
   border-radius: 20px;
 }
 
-/* Línea de tiempo */
+/* LÍNEA DE TIEMPO (MISMO ESTILO ORIGINAL) */
 .lineaTiempo {
   max-width: 700px;
   margin: 80px auto;
@@ -78,28 +97,16 @@ button {
   animation: aparecer 1s ease forwards;
 }
 
-.evento:nth-child(1){animation-delay:.5s}
-.evento:nth-child(2){animation-delay:1.2s}
-.evento:nth-child(3){animation-delay:1.9s}
-.evento:nth-child(4){animation-delay:2.6s}
+.evento:nth-child(1){animation-delay:.3s}
+.evento:nth-child(2){animation-delay:.9s}
+.evento:nth-child(3){animation-delay:1.5s}
+.evento:nth-child(4){animation-delay:2.1s}
 
 @keyframes aparecer {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Títulos resaltados con brillo */
-.evento h3 {
-  color: #ffb703;
-  animation: brillo 1s ease;
-}
-
-@keyframes brillo {
-  0% { text-shadow: 0 0 0px #ffb703; }
-  50% { text-shadow: 0 0 15px #ffb703; }
-  100% { text-shadow: 0 0 0px #ffb703; }
-}
-
-/* Mensaje secreto */
+/* MENSAJE SECRETO */
 .lineaSecreta {
   opacity: 0;
   transform: translateY(40px);
@@ -122,8 +129,8 @@ button {
 <body>
 
 <div id="pantallaEntrada">
-  <h1 class="caer">Para Zoe ❤️</h1>
-  <button onclick="entrar()">Entrar</button>
+  <h1 class="caer">For Zoe ❤️</h1>
+  <button onclick="entrar()">Enter</button>
 </div>
 
 <audio id="musica" loop>
@@ -153,27 +160,25 @@ button {
 
 <!-- LÍNEA DE TIEMPO -->
 <div class="lineaTiempo">
-
   <div class="evento">
-    <h3>Since we started “arguing”</h3>
+    <h3>Since we started arguing</h3>
     <p>I felt that this “argument” was just an excuse to hide our feelings.</p>
   </div>
 
   <div class="evento">
-    <h3>When I didn’t see you</h3>
+    <h3>When I couldn’t see you</h3>
     <p>I felt that need to see you, without knowing why, and to look for an excuse to talk to you.</p>
   </div>
 
   <div class="evento">
-    <h3>How could I forget our first date and how nervous I was</h3>
-    <p>I was so nervous, but at the same time excited and happy to finally be able to spend some time with you outside of school.</p>
+    <h3>How could I forget our first date</h3>
+    <p>I was so nervous, but also excited and happy to finally spend some time with you outside school.</p>
   </div>
 
   <div class="evento">
-    <h3>These things and many more make me</h3>
-    <p>Choose you every single day, see you as my light on the road, my partner in the adventure and my unconditional love.</p>
+    <h3>All these things and many more make me</h3>
+    <p>Choose you every single day, my light on the road, my partner in the adventure and my unconditional love.</p>
   </div>
-
 </div>
 
 <!-- MENSAJE SECRETO -->
@@ -191,10 +196,10 @@ button {
   <div id="mensajeSecreto" style="display:none; margin-top:40px;">
     <p class="lineaSecreta">Today we have to love each other from a distance,</p>
     <p class="lineaSecreta">but I couldn’t let this important day pass without doing something for us.</p>
-    <p class="lineaSecreta">I wish I could be by your side, but when you see this page,</p>
-    <p class="lineaSecreta">I hope you feel me close to you.</p>
-    <p class="lineaSecreta">I would love to see your reaction in person,</p>
-    <p class="lineaSecreta">but I know our reunion will be even better.</p>
+    <p class="lineaSecreta">I wish I could be by your side,</p>
+    <p class="lineaSecreta">and I hope you feel me close when you see this.</p>
+    <p class="lineaSecreta">I know our reunion will be even better.</p>
+    <p class="lineaSecreta">I love you.</p>
   </div>
 </div>
 
@@ -208,8 +213,8 @@ function entrar() {
 }
 
 function verificarSecreto() {
-  const input = document.getElementById("entradaSecreta").value.trim().toUpperCase();
-  if (input === "INTENSITY") {
+  const palabra = document.getElementById("entradaSecreta").value.trim().toUpperCase();
+  if (palabra === "INTENSITY") {
     document.getElementById("mensajeSecreto").style.display = "block";
   } else {
     alert("That’s not the word ❤️");
