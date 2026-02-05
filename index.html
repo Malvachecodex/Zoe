@@ -23,14 +23,8 @@ body {
   align-items: center;
 }
 
-#intro h1 {
-  font-size: 3.2em;
-}
-
-#intro p {
-  opacity: 0.8;
-  font-size: 1.2em;
-}
+#intro h1 { font-size: 3.2em; }
+#intro p { opacity: 0.8; font-size: 1.2em; }
 
 #intro button {
   margin-top: 30px;
@@ -41,19 +35,15 @@ body {
   background: #e63946;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: .3s;
 }
-
 #intro button:hover {
   background: #ff4d6d;
   transform: scale(1.05);
 }
 
 /* CONTENT */
-#content {
-  display: none;
-  padding: 80px 20px;
-}
+#content { display: none; padding: 80px 20px; }
 
 /* PHRASES */
 #phrases {
@@ -68,7 +58,6 @@ body {
   transform: translateY(-60px);
   animation: fall 1.2s ease forwards;
 }
-
 .line:nth-child(1){animation-delay:.5s}
 .line:nth-child(2){animation-delay:1.5s}
 .line:nth-child(3){animation-delay:2.5s}
@@ -76,10 +65,7 @@ body {
 .line:nth-child(5){animation-delay:4.5s}
 
 @keyframes fall {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* MESSAGE */
@@ -96,7 +82,6 @@ body {
   margin: 0 auto 100px;
   text-align: left;
 }
-
 .timeline div {
   margin-bottom: 25px;
   border-left: 3px solid #e63946;
@@ -113,7 +98,6 @@ body {
   cursor: pointer;
   margin-bottom: 30px;
 }
-
 #letter {
   display: none;
   max-width: 700px;
@@ -128,7 +112,6 @@ body {
   transform: translateY(40px);
   animation: reveal 1.2s ease forwards;
 }
-
 .secretLine:nth-child(1){animation-delay:.5s}
 .secretLine:nth-child(2){animation-delay:1.5s}
 .secretLine:nth-child(3){animation-delay:2.5s}
@@ -137,10 +120,7 @@ body {
 .secretLine:nth-child(6){animation-delay:5.5s}
 
 @keyframes reveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* POLAROIDS */
@@ -151,7 +131,6 @@ body {
   gap: 25px;
   margin-top: 80px;
 }
-
 .polaroid {
   background: white;
   padding: 10px 10px 25px;
@@ -159,21 +138,11 @@ body {
   transform: rotate(var(--r));
   box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
-
-.polaroid img {
-  width: 100%;
-}
-
-.polaroid span {
-  color: #111;
-  font-size: 0.9em;
-}
+.polaroid img { width: 100%; }
+.polaroid span { color: #111; font-size: .9em; }
 
 /* FOOTER */
-footer {
-  margin-top: 100px;
-  opacity: 0.6;
-}
+footer { margin-top: 100px; opacity: .6; }
 </style>
 </head>
 
@@ -201,7 +170,7 @@ footer {
     <p class="line">Thank you for choosing me every day.</p>
   </div>
 
-  <!-- TIMELINE MODIFICADA -->
+  <!-- TIMELINE -->
   <div class="timeline">
     <div>
       <strong>Since the moment we started arguing</strong><br>
@@ -215,7 +184,7 @@ footer {
 
     <div>
       <strong>How could I forget our first date and how nervous I was</strong><br>
-      I was so nervous that I couldn’t even open the door, but at the same time anxious and happy to be doing what I wanted: spending some time with you outside of school.
+      I was so nervous I couldn’t even open the door, but also anxious and happy to finally spend some time with you outside of school.
     </div>
 
     <div>
@@ -224,30 +193,54 @@ footer {
     </div>
   </div>
 
+  <!-- LETTER -->
   <button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
   <div id="letter">
     <p>
-      Thank you for choosing me to be your partner every day,<br>
-      for letting me enjoy every moment with you<br>
-      and for allowing me to be someone very special in your life.
+      Thank you for choosing me to be your partner every day, for letting me enjoy every moment with you and for allowing me to be someone very special in your life.
     </p>
-
     <p>
-      Because of that, and because of such an important date,<br>
-      I decided to do what I made for you today:<br>
-      a look back at the beautiful moments we have lived together until now<br>
-      (I know some are missing, but I don’t have a photo of every beautiful moment<br>
-      we share, because they happen every day).
+      Because of that, and because of such an important date, I decided to do what I made for you today: a look back at the beautiful moments we have lived together until now (I know some are missing, but I don’t have a photo of every beautiful moment we share, because they happen every day).
     </p>
-
-    <p>Thank you, and I love you.</p>
-    <p>— Your boyfriend ❤️</p>
+    <p>THANK YOU AND I LOVE YOU.</p>
   </div>
 
-  <footer>
-    Happy Valentine’s Day 💘
-  </footer>
+  <!-- SECRET WORD -->
+  <div style="margin-top:100px;">
+    <h2>Something just for you ❤️</h2>
+    <p>Write the word that defines us.</p>
 
+    <input id="secretInput" placeholder="Enter the word"
+      style="padding:12px 20px;border-radius:20px;border:none;text-align:center;">
+
+    <br><br>
+
+    <button onclick="checkSecret()"
+      style="padding:12px 35px;border-radius:25px;border:none;background:#e63946;color:white;">
+      Unlock
+    </button>
+
+    <div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin:auto;">
+      <p class="secretLine">Today we have to love each other from a distance,</p>
+      <p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
+      <p class="secretLine">When you see this page, I hope you feel me close to you.</p>
+      <p class="secretLine">I know our reunion will be even better.</p>
+      <p class="secretLine">Happy Valentine’s Day.</p>
+      <p class="secretLine">I love you deeply.</p>
+    </div>
+  </div>
+
+  <!-- POLAROIDS -->
+  <div class="gallery">
+    <div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
+    <div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
+    <div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
+    <div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
+    <div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
+    <div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
+  </div>
+
+  <footer>Happy Valentine’s Day 💘</footer>
 </div>
 
 <script>
@@ -265,15 +258,22 @@ setInterval(() => {
 }, 3500);
 
 function enterSite() {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("content").style.display = "block";
-  const music = document.getElementById("music");
+  intro.style.display = "none";
+  content.style.display = "block";
   music.volume = 0.4;
   music.play();
 }
 
 function openLetter() {
   document.getElementById("letter").style.display = "block";
+}
+
+function checkSecret() {
+  if (secretInput.value.trim().toUpperCase() === "INTENSITY") {
+    secretMessage.style.display = "block";
+  } else {
+    alert("That’s not the word ❤️");
+  }
 }
 </script>
 
