@@ -23,14 +23,8 @@ body {
   align-items: center;
 }
 
-#intro h1 {
-  font-size: 3.2em;
-}
-
-#intro p {
-  opacity: 0.8;
-  font-size: 1.2em;
-}
+#intro h1 { font-size: 3.2em; }
+#intro p { opacity: 0.8; font-size: 1.2em; }
 
 #intro button {
   margin-top: 30px;
@@ -47,6 +41,13 @@ body {
 #intro button:hover {
   background: #ff4d6d;
   transform: scale(1.05);
+}
+
+/* COUNTDOWN */
+#countdown {
+  margin-top: 40px;
+  font-size: 1.4em;
+  color: #ffb703;
 }
 
 /* CONTENT */
@@ -125,6 +126,38 @@ body {
   margin: 40px auto;
   font-size: 1.2em;
   line-height: 1.8;
+  min-height: 120px;
+}
+
+/* HUG MODE */
+#hugBtn {
+  padding: 12px 35px;
+  border-radius: 25px;
+  border: none;
+  background: #444;
+  color: white;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+#hugOverlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  font-size:2em;
+  text-align:center;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
 }
 
 /* SECRET MESSAGE */
@@ -162,41 +195,28 @@ body {
   box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
 
-.polaroid img {
-  width: 100%;
-}
+.polaroid img { width: 100%; }
+.polaroid span { color: #111; font-size: 0.9em; }
 
-.polaroid span {
-  color: #111;
-  font-size: 0.9em;
-}
-
-/* FOOTER */
-footer {
-  margin-top: 100px;
-  opacity: 0.6;
-}
+footer { margin-top: 100px; opacity: 0.6; }
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
 <div id="intro">
   <h1>For Zoe ❤️</h1>
   <p>Intensity, love, and everything we are.</p>
   <button onclick="enterSite()">Enter</button>
+  <div id="countdown"></div>
 </div>
 
-<!-- MUSIC -->
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- CONTENT -->
 <div id="content">
 
-  <!-- FALLING MESSAGE -->
   <div class="message">
     <p class="line">I’m not very good at making things by hand,</p>
     <p class="line">but technology is where I feel most comfortable.</p>
@@ -205,71 +225,32 @@ footer {
     <p class="line">Thank you for choosing me every day.</p>
   </div>
 
-  <!-- TIMELINE -->
   <div class="timeline">
     <div>
       <strong>Since we started “fighting”</strong>
       I felt that “fight” was just an excuse to hide our feelings.
     </div>
-
     <div>
       <strong>When I couldn’t see you</strong>
       I felt that need to see you, without knowing why, just looking for an excuse to talk to you.
     </div>
-
     <div>
       <strong>How could I forget our first date</strong>
       I was so nervous that I couldn’t even open the door, but also excited and happy to finally be with you outside school.
     </div>
-
     <div>
       <strong>All these things, and so many more</strong>
       Are why I keep choosing you every day — my light on the path, my partner in the adventure, my unconditional love.
     </div>
   </div>
 
-  <!-- LETTER -->
   <button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
-  <div id="letter">
-    <p>
-      Thank you for choosing me to be your companion every day, for letting me enjoy every moment with you and for letting me be someone very special in your life. That is why, and because of such an important date, I decided to do what I did for you today, a memory of the past of the beautiful moments we have lived together up to this day (I know some are missing, but I don’t have a photo of every beautiful moment I spend with you since they happen every day). THANK YOU AND I LOVE YOU.
-    </p>
-  </div>
+  <div id="letter"></div>
 
-  <!-- SECRET -->
-  <div style="margin-top:100px;">
-    <h2>Something just for you ❤️</h2>
-    <p>Write the word that defines us.</p>
+  <button id="hugBtn" onclick="activateHug()">I need a hug</button>
 
-    <input id="secretInput" type="text" placeholder="Enter the word"
-      style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
-
-    <br><br>
-
-    <button onclick="checkSecret()"
-      style="padding:12px 35px; border-radius:25px; border:none;
-      background:#e63946; color:white; cursor:pointer;">
-      Unlock
-    </button>
-
-    <div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin:auto;">
-      <p class="secretLine">Today we have to love each other from a distance,</p>
-      <p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
-      <p class="secretLine">I wish I could be by your side, but when you see this page,</p>
-      <p class="secretLine">I hope you feel me close to you.</p>
-      <p class="secretLine">I would love to see your reaction in person,</p>
-      <p class="secretLine">but I know our reunion will be even better.</p>
-    </div>
-  </div>
-
-  <!-- POLAROIDS -->
-  <div class="gallery">
-    <div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
-    <div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
-    <div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
-    <div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
-    <div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
-    <div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
+  <div id="hugOverlay" onclick="closeHug()">
+    Close your eyes… I’m holding you 🤍
   </div>
 
   <footer>Happy Valentine’s Day 💘</footer>
@@ -285,29 +266,55 @@ function enterSite() {
   music.play();
 }
 
-function openLetter() {
-  document.getElementById("letter").style.display = "block";
-}
+/* COUNTDOWN */
+const endDate = new Date("February 21, 2026 15:30:00").getTime();
+const startDate = new Date("February 14, 2026 00:00:00").getTime();
 
-function checkSecret() {
-  const input = document.getElementById("secretInput").value.trim().toUpperCase();
-  if (input === "INTENSITY") {
-    document.getElementById("secretMessage").style.display = "block";
-  } else {
-    alert("That’s not the word ❤️");
+const countdown = setInterval(function() {
+  const now = new Date().getTime();
+  if(now < startDate){
+    document.getElementById("countdown").innerHTML = "Counting begins soon...";
+    return;
   }
+  const distance = endDate - now;
+
+  if(distance < 0){
+    document.getElementById("countdown").innerHTML = "It’s time 🤍";
+    clearInterval(countdown);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+}, 1000);
+
+/* TYPEWRITER LETTER */
+const text = `Thank you for choosing me to be your companion every day, for letting me enjoy every moment with you and for letting me be someone very special in your life. That is why, and because of such an important date, I decided to do what I did for you today, a memory of the past of the beautiful moments we have lived together up to this day (I know some are missing, but I don’t have a photo of every beautiful moment I spend with you since they happen every day). THANK YOU AND I LOVE YOU.`;
+
+function openLetter() {
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+  letter.innerHTML = "";
+  let i = 0;
+  const typing = setInterval(function(){
+    letter.innerHTML += text.charAt(i);
+    i++;
+    if(i >= text.length) clearInterval(typing);
+  }, 35);
 }
 
-/* TIMELINE SCROLL */
-const items = document.querySelectorAll(".timeline div");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-},{threshold:0.3});
-items.forEach(i => observer.observe(i));
+/* HUG MODE */
+function activateHug(){
+  document.getElementById("hugOverlay").style.display="flex";
+}
+function closeHug(){
+  document.getElementById("hugOverlay").style.display="none";
+}
 </script>
 
 </body>
