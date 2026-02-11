@@ -23,8 +23,14 @@ body {
   align-items: center;
 }
 
-#intro h1 { font-size: 3.2em; }
-#intro p { opacity: 0.8; font-size: 1.2em; }
+#intro h1 {
+  font-size: 3.2em;
+}
+
+#intro p {
+  opacity: 0.8;
+  font-size: 1.2em;
+}
 
 #intro button {
   margin-top: 30px;
@@ -44,7 +50,25 @@ body {
 }
 
 /* CONTENT */
-#content { display: none; padding: 80px 20px; }
+#content {
+  display: none;
+  padding: 80px 20px;
+}
+
+/* COUNTDOWN */
+#countdownSection {
+  margin-bottom: 100px;
+}
+
+#countdownTitle {
+  font-size: 1.6em;
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
 
 /* FALLING TEXT */
 .line {
@@ -59,7 +83,9 @@ body {
 .line:nth-child(4){animation-delay:3.5s}
 .line:nth-child(5){animation-delay:4.5s}
 
-@keyframes fall { to { opacity: 1; transform: translateY(0); } }
+@keyframes fall {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* MESSAGE */
 .message {
@@ -130,7 +156,9 @@ body {
 .secretLine:nth-child(5){animation-delay:4.5s}
 .secretLine:nth-child(6){animation-delay:5.5s}
 
-@keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* POLAROIDS */
 .gallery {
@@ -149,30 +177,23 @@ body {
   box-shadow: 0 15px 35px rgba(0,0,0,0.6);
 }
 
-.polaroid img { width: 100%; }
-.polaroid span { color: #111; font-size: 0.9em; }
-
-/* COUNTDOWN */
-#countdownSection {
-  margin-top: 120px;
+.polaroid img {
+  width: 100%;
 }
 
-#countdown {
-  font-size: 1.5em;
-  margin-top: 20px;
+.polaroid span {
+  color: #111;
+  font-size: 0.9em;
 }
 
-/* HUG SCREEN */
-#hugScreen {
-  position: fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background:#000;
-  display:none;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
+/* HUG */
+#hugSection {
+  display: none;
+  margin-top: 100px;
+}
+
+#hugSection h2 {
+  font-size: 2em;
   animation: fadeIn 2s ease forwards;
 }
 
@@ -181,19 +202,10 @@ body {
   to {opacity:1;}
 }
 
-.eyes {
-  font-size: 3em;
-  animation: closeEyes 3s ease forwards;
+footer {
+  margin-top: 100px;
+  opacity: 0.6;
 }
-
-@keyframes closeEyes {
-  0% {opacity:1;}
-  70% {opacity:1;}
-  100% {opacity:0;}
-}
-
-footer { margin-top: 100px; opacity: 0.6; }
-
 </style>
 </head>
 
@@ -211,34 +223,42 @@ footer { margin-top: 100px; opacity: 0.6; }
 
 <div id="content">
 
+<!-- COUNTDOWN -->
+<div id="countdownSection">
+  <div id="countdownTitle">It won’t be long before we see each other ❤️</div>
+  <div id="countdown"></div>
+</div>
+
+<!-- MESSAGE -->
 <div class="message">
-<p class="line">I’m not very good at making things by hand,</p>
-<p class="line">but technology is where I feel most comfortable.</p>
-<p class="line">So I wanted to create something special for you,</p>
-<p class="line">something that reflects how intense what we have is.</p>
-<p class="line">Thank you for choosing me every day.</p>
+  <p class="line">I’m not very good at making things by hand,</p>
+  <p class="line">but technology is where I feel most comfortable.</p>
+  <p class="line">So I wanted to create something special for you,</p>
+  <p class="line">something that reflects how intense what we have is.</p>
+  <p class="line">Thank you for choosing me every day.</p>
 </div>
 
+<!-- TIMELINE -->
 <div class="timeline">
-<div>
-<strong>Since we started “fighting”</strong>
-I felt that “fight” was just an excuse to hide our feelings.
-</div>
+  <div>
+    <strong>Since we started “fighting”</strong>
+    I felt that “fight” was just an excuse to hide our feelings.
+  </div>
 
-<div>
-<strong>When I couldn’t see you</strong>
-I felt that need to see you, without knowing why, just looking for an excuse to talk to you.
-</div>
+  <div>
+    <strong>When I couldn’t see you</strong>
+    I felt that need to see you, without knowing why, just looking for an excuse to talk to you.
+  </div>
 
-<div>
-<strong>How could I forget our first date</strong>
-I was so nervous that I couldn’t even open the door, but also excited and happy to finally be with you outside school.
-</div>
+  <div>
+    <strong>How could I forget our first date</strong>
+    I was so nervous that I couldn’t even open the door, but also excited and happy to finally be with you outside school.
+  </div>
 
-<div>
-<strong>All these things, and so many more</strong>
-Are why I keep choosing you every day — my light on the path, my partner in the adventure, my unconditional love.
-</div>
+  <div>
+    <strong>All these things, and so many more</strong>
+    Are why I keep choosing you every day — my light on the path, my partner in the adventure, my unconditional love.
+  </div>
 </div>
 
 <button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
@@ -248,64 +268,105 @@ Thank you for choosing me to be your companion every day, for letting me enjoy e
 </p>
 </div>
 
-<!-- COUNTDOWN -->
-<div id="countdownSection">
-<h2>It's almost time to see each other ❤️</h2>
-<div id="countdown"></div>
+<!-- SECRET -->
+<div style="margin-top:100px;">
+<h2>Something just for you ❤️</h2>
+<p>Write the word that defines us.</p>
+<input id="secretInput" type="text" placeholder="Enter the word"
+style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
+<br><br>
+<button onclick="checkSecret()"
+style="padding:12px 35px; border-radius:25px; border:none; background:#e63946; color:white; cursor:pointer;">
+Unlock
+</button>
+
+<div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin:auto;">
+<p class="secretLine">Today we have to love each other from a distance,</p>
+<p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
+<p class="secretLine">I wish I could be by your side, but when you see this page,</p>
+<p class="secretLine">I hope you feel me close to you.</p>
+<p class="secretLine">I would love to see your reaction in person,</p>
+<p class="secretLine">but I know our reunion will be even better.</p>
 </div>
+</div>
+
+<!-- POLAROIDS -->
+<div class="gallery">
+<div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
+<div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
+<div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
+<div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
+<div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
+<div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
+</div>
+
+<!-- HUG -->
+<div id="hugSection">
+<h2>Close your eyes… I'm hugging you 🤍</h2>
+</div>
+
+<button onclick="activateHug()" style="margin-top:50px;padding:12px 30px;border-radius:25px;border:none;background:#ff4d6d;color:white;cursor:pointer;">
+I need a hug
+</button>
 
 <footer>Happy Valentine’s Day 💘</footer>
-</div>
 
-<!-- HUG SCREEN -->
-<div id="hugScreen">
-<div class="eyes">👀</div>
-<h1>Now close your eyes...</h1>
-<p>Imagine me hugging you tightly ❤️</p>
 </div>
 
 <script>
-function enterSite(){
-document.getElementById("intro").style.display="none";
-document.getElementById("content").style.display="block";
-const music=document.getElementById("music");
-music.volume=0.4;
+function enterSite() {
+document.getElementById("intro").style.display = "none";
+document.getElementById("content").style.display = "block";
+const music = document.getElementById("music");
+music.volume = 0.4;
 music.play();
+startCountdown();
 }
 
-function openLetter(){
-document.getElementById("letter").style.display="block";
+function openLetter() {
+document.getElementById("letter").style.display = "block";
+}
+
+function checkSecret() {
+const input = document.getElementById("secretInput").value.trim().toUpperCase();
+if (input === "INTENSITY") {
+document.getElementById("secretMessage").style.display = "block";
+} else {
+alert("That’s not the word ❤️");
+}
 }
 
 /* COUNTDOWN 2026 */
-const startDate=new Date("Feb 14, 2026 00:00:00").getTime();
-const endDate=new Date("Feb 21, 2026 15:00:00").getTime();
+function startCountdown() {
+const target = new Date("June 21, 2026 15:00:00").getTime();
+const countdown = document.getElementById("countdown");
 
-const countdownEl=document.getElementById("countdown");
+setInterval(function(){
+const now = new Date().getTime();
+const distance = target - now;
 
-const interval=setInterval(()=>{
-const now=new Date().getTime();
-const distance=endDate-now;
-
-if(distance<0){
-clearInterval(interval);
-countdownEl.innerHTML="It's time ❤️";
-document.getElementById("hugScreen").style.display="flex";
+if(distance <= 0){
+countdown.innerHTML = "It’s time 🤍";
+activateHug();
 return;
 }
 
-const days=Math.floor(distance/(1000*60*60*24));
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
-const seconds=Math.floor((distance%(1000*60))/1000);
+const days = Math.floor(distance/(1000*60*60*24));
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds = Math.floor((distance%(1000*60))/1000);
 
-countdownEl.innerHTML=
-days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+countdown.innerHTML = days+"d "+hours+"h "+minutes+"m "+seconds+"s";
 },1000);
+}
+
+function activateHug(){
+document.getElementById("hugSection").style.display="block";
+}
 
 /* TIMELINE SCROLL */
-const items=document.querySelectorAll(".timeline div");
-const observer=new IntersectionObserver(entries=>{
+const items = document.querySelectorAll(".timeline div");
+const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 entry.target.classList.add("visible");
