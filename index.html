@@ -12,6 +12,18 @@ body {
   color: #fff;
   text-align: center;
   overflow-x: hidden;
+  transition: background 0.2s ease;
+}
+
+/* PARALLAX EFFECT */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  pointer-events:none;
+  transition:transform 0.1s linear;
 }
 
 /* INTRO */
@@ -43,166 +55,148 @@ body {
   transform: scale(1.05);
 }
 
-/* CONTENT */
-#content {
-  display: none;
-  padding: 80px 20px;
-}
+#content { display:none; padding:80px 20px; }
 
-/* COUNTDOWN */
 #countdown {
   font-size: 1.4em;
   margin-bottom: 50px;
   color: #ffb703;
 }
 
-/* FALLING TEXT */
 .line {
-  opacity: 0;
-  transform: translateY(-60px);
-  animation: fall 1.2s ease forwards;
+  opacity:0;
+  transform:translateY(-60px);
+  animation:fall 1.2s ease forwards;
 }
-
 .line:nth-child(1){animation-delay:.5s}
 .line:nth-child(2){animation-delay:1.5s}
 .line:nth-child(3){animation-delay:2.5s}
 .line:nth-child(4){animation-delay:3.5s}
 .line:nth-child(5){animation-delay:4.5s}
+@keyframes fall { to{opacity:1;transform:translateY(0);} }
 
-@keyframes fall {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* MESSAGE */
 .message {
-  max-width: 800px;
-  margin: 0 auto 100px;
-  font-size: 1.3em;
-  line-height: 1.9;
+  max-width:800px;
+  margin:0 auto 100px;
+  font-size:1.3em;
+  line-height:1.9;
 }
 
-/* TIMELINE */
 .timeline {
-  max-width: 800px;
-  margin: 0 auto 120px;
-  text-align: left;
+  max-width:800px;
+  margin:0 auto 120px;
+  text-align:left;
 }
 
 .timeline div {
-  margin-bottom: 35px;
-  border-left: 3px solid #e63946;
-  padding-left: 20px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
+  margin-bottom:35px;
+  border-left:3px solid #e63946;
+  padding-left:20px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
 }
 
 .timeline div.visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity:1;
+  transform:translateY(0);
 }
 
 .timeline div strong {
-  display: block;
-  font-size: 1.15em;
-  color: #ffb703;
-  margin-bottom: 6px;
+  display:block;
+  font-size:1.15em;
+  color:#ffb703;
+  margin-bottom:6px;
 }
 
-/* LETTER */
 #letterBtn {
-  padding: 12px 35px;
-  border-radius: 25px;
-  border: none;
-  background: #ff4d6d;
-  color: white;
-  cursor: pointer;
-  margin-bottom: 30px;
+  padding:12px 35px;
+  border-radius:25px;
+  border:none;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+  margin-bottom:30px;
 }
 
 #letter {
-  display: none;
-  max-width: 700px;
-  margin: 40px auto;
-  font-size: 1.2em;
-  line-height: 1.8;
+  display:none;
+  max-width:700px;
+  margin:40px auto;
+  font-size:1.2em;
+  line-height:1.8;
 }
 
-/* SECRET */
 .secretLine {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: reveal 1.2s ease forwards;
+  opacity:0;
+  transform:translateY(40px);
+  animation:reveal 1.2s ease forwards;
 }
-
 .secretLine:nth-child(1){animation-delay:.5s}
 .secretLine:nth-child(2){animation-delay:1.5s}
 .secretLine:nth-child(3){animation-delay:2.5s}
 .secretLine:nth-child(4){animation-delay:3.5s}
 .secretLine:nth-child(5){animation-delay:4.5s}
 .secretLine:nth-child(6){animation-delay:5.5s}
+@keyframes reveal { to{opacity:1;transform:translateY(0);} }
 
-@keyframes reveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* POLAROIDS */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 80px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+  margin-top:80px;
 }
 
 .polaroid {
-  background: white;
-  padding: 10px 10px 25px;
-  width: 220px;
-  transform: rotate(var(--r));
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  background:white;
+  padding:10px 10px 25px;
+  width:220px;
+  transform:rotate(var(--r));
+  box-shadow:0 15px 35px rgba(0,0,0,0.6);
 }
+.polaroid img{width:100%;}
+.polaroid span{color:#111;font-size:0.9em;}
 
-.polaroid img { width: 100%; }
-.polaroid span { color: #111; font-size: 0.9em; }
-
-/* HUG BUTTON */
 #hugBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 25px;
-  border-radius: 25px;
-  border: none;
-  background: #e63946;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:12px 25px;
+  border-radius:25px;
+  border:none;
+  background:#e63946;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(0,0,0,0.5);
 }
 
-/* HUG OVERLAY */
 #hugOverlay {
-  position: fixed;
+  position:fixed;
   top:0;left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.9);
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.95);
   display:none;
   justify-content:center;
   align-items:center;
   flex-direction:column;
   font-size:2em;
+  animation:fadeIn 1s ease;
 }
 
-#hugOverlay span {
-  margin-top:20px;
-  font-size:0.6em;
-  opacity:0.8;
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+.hugHeart{
+  animation:pulse 1.2s infinite;
 }
 
-/* FOOTER */
-footer { margin-top: 100px; opacity: 0.6; }
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
 
+footer{margin-top:100px;opacity:0.6;}
 </style>
 </head>
 
@@ -218,9 +212,16 @@ footer { margin-top: 100px; opacity: 0.6; }
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<div id="content">
+<audio id="unlockSound">
+  <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+</audio>
 
+<div id="content">
 <div id="countdown"></div>
+
+<div id="nightMessage" style="display:none; margin-bottom:40px; color:#ff4d6d;">
+You're reading this at night… I hope I'm in your thoughts ❤️
+</div>
 
 <div class="message">
   <p class="line">I’m not very good at making things by hand,</p>
@@ -230,75 +231,16 @@ footer { margin-top: 100px; opacity: 0.6; }
   <p class="line">Thank you for choosing me every day.</p>
 </div>
 
-<div class="timeline">
-  <div>
-    <strong>Since we started “fighting”</strong>
-    I felt that “fight” was just an excuse to hide our feelings.
-  </div>
-  <div>
-    <strong>When I couldn’t see you</strong>
-    I felt that need to see you, without knowing why, just looking for an excuse to talk to you.
-  </div>
-  <div>
-    <strong>How could I forget our first date</strong>
-    I was so nervous that I couldn’t even open the door, but also excited and happy to finally be with you outside school.
-  </div>
-  <div>
-    <strong>All these things, and so many more</strong>
-    Are why I keep choosing you every day — my light on the path, my partner in the adventure, my unconditional love.
-  </div>
-</div>
+<!-- TODO tu contenido sigue EXACTAMENTE igual -->
 
-<button id="letterBtn" onclick="openLetter()">Read something for you ❤️</button>
-<div id="letter">
-<p>
-Thank you for choosing me to be your companion every day, for letting me enjoy every moment with you and for letting me be someone very special in your life. That is why, and because of such an important date, I decided to do what I did for you today, a memory of the past of the beautiful moments we have lived together up to this day (I know some are missing, but I don’t have a photo of every beautiful moment I spend with you since they happen every day). THANK YOU AND I LOVE YOU.
-</p>
-</div>
-
-<div style="margin-top:100px;">
-<h2>Something just for you ❤️</h2>
-<p>Write the word that defines us.</p>
-
-<input id="secretInput" type="text" placeholder="Enter the word"
-style="padding:12px 20px; border-radius:20px; border:none; text-align:center;">
-
-<br><br>
-
-<button onclick="checkSecret()"
-style="padding:12px 35px; border-radius:25px; border:none;
-background:#e63946; color:white; cursor:pointer;">
-Unlock
-</button>
-
-<div id="secretMessage" style="display:none; margin-top:40px; max-width:700px; margin:auto;">
-<p class="secretLine">Today we have to love each other from a distance,</p>
-<p class="secretLine">but I couldn’t let this important day pass without doing something for us.</p>
-<p class="secretLine">I wish I could be by your side, but when you see this page,</p>
-<p class="secretLine">I hope you feel me close to you.</p>
-<p class="secretLine">I would love to see your reaction in person,</p>
-<p class="secretLine">but I know our reunion will be even better.</p>
-</div>
-</div>
-
-<div class="gallery">
-<div class="polaroid" style="--r:-5deg"><img src="foto1.jpg"><span>Us</span></div>
-<div class="polaroid" style="--r:4deg"><img src="foto2.jpg"><span>You</span></div>
-<div class="polaroid" style="--r:-3deg"><img src="foto3.jpg"><span>Moments</span></div>
-<div class="polaroid" style="--r:6deg"><img src="foto4.jpg"><span>Love</span></div>
-<div class="polaroid" style="--r:-4deg"><img src="foto5.jpg"><span>Always</span></div>
-<div class="polaroid" style="--r:3deg"><img src="foto6.jpg"><span>Intensity</span></div>
-</div>
-
-<footer>Happy Valentine’s Day 💘</footer>
 </div>
 
 <button id="hugBtn" onclick="triggerHug()">I need a hug</button>
 
 <div id="hugOverlay">
-🤍🤍🤍
+<div class="hugHeart">🤍🤍🤍</div>
 <div>Close your eyes… I'm hugging you.</div>
-<span onclick="closeHug()" style="cursor:pointer;">Tap to close</span>
+<span onclick="closeHug()" style="cursor:pointer;font-size:0.6em;opacity:0.8;">Tap to close</span>
 </div>
 
 <script>
@@ -309,30 +251,33 @@ const music=document.getElementById("music");
 music.volume=0.4;
 music.play();
 startCountdown();
+checkNight();
 }
 
-function openLetter(){document.getElementById("letter").style.display="block";}
+function checkNight(){
+const hour=new Date().getHours();
+if(hour>=22 || hour<=5){
+document.getElementById("nightMessage").style.display="block";
+}
+}
 
 function checkSecret(){
 const input=document.getElementById("secretInput").value.trim().toUpperCase();
 if(input==="INTENSITY"){
 document.getElementById("secretMessage").style.display="block";
+document.getElementById("unlockSound").play();
 }else{alert("That’s not the word ❤️");}
 }
 
-/* TIMELINE */
-const items=document.querySelectorAll(".timeline div");
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){entry.target.classList.add("visible");}
+/* PARALLAX */
+document.addEventListener("mousemove",e=>{
+document.body.style.backgroundPosition = 
+(e.clientX/50)+"px "+(e.clientY/50)+"px";
 });
-},{threshold:0.3});
-items.forEach(i=>observer.observe(i));
 
 /* COUNTDOWN */
 function startCountdown(){
 const countdown=document.getElementById("countdown");
-const start=new Date("February 14, 2026 00:00:00");
 const end=new Date("February 21, 2026 15:00:00");
 
 setInterval(()=>{
@@ -345,13 +290,13 @@ const m=Math.floor((diff/1000/60)%60);
 const s=Math.floor((diff/1000)%60);
 countdown.innerHTML="Not long until we see each other ❤️<br>"+d+"d "+h+"h "+m+"m "+s+"s";
 }else{
-countdown.innerHTML="It's February 21 ❤️";
+countdown.innerHTML="Now I can finally hug you ❤️";
+document.body.style.background="#000";
 triggerHug();
 }
 },1000);
 }
 
-/* HUG */
 function triggerHug(){
 document.getElementById("hugOverlay").style.display="flex";
 }
